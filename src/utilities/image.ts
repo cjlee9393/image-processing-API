@@ -6,25 +6,27 @@ const fullDir = "/Users/cjlee/workspace/projects/building-a-server-project/src/a
 const thumbDir = "/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb";
 
 const resizeImage = (imgName:string, width:number, height:number) => {
-    const checkPath = path.resolve(thumbDir, imgName + '.jpg');
+    const srcPath = path.resolve(fullDir, imgName + '.jpg');
+    const dstPath = path.resolve(thumbDir, imgName + '.jpg');
 
-    try{
-        if (!fs.existsSync(checkPath)){
-            const srcPath = path.resolve(fullDir, imgName + '.jpg')
-
-            im.resize({
-                srcPath: srcPath,
-                dstPath: checkPath,
-                width: width,
-                height: height,
-              }, (err, stdout, stderr) => {
-                if (err) throw err;
-                console.log(`resized  ${srcPath} to fit within ${width}x${height}px`);
-              });
-        }
-    }catch(error){
-        console.log('error: ', error);
+    if (!fs.existsSync(srcPath)){
+        const err = new Error(`no such file or directory, stat ${srcPath}`);
+        err.name = 'ImageNotExistError';
+        throw err;
     }
+    
+    im.resize({
+        srcPath: srcPath,
+        dstPath: dstPath,
+        width: width,
+        height: height,
+        }, (err, stdout, stderr) => {
+        if (err) {
+            err.name = 'ImageFailedToProcessError';
+            throw err
+        };
+        console.log(`resized  ${srcPath} to fit within ${width}x${height}px`);
+    });
 }
 
 export default {
