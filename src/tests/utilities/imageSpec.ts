@@ -2,6 +2,7 @@ import image from "../../utilities/image";
 import path from 'path';
 import fs from 'fs';
 
+
 describe("image.resizeImage() should", () => {
     const imgName = "fjord";
     const checkPath = '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb/fjord.jpg';
@@ -22,3 +23,4 @@ describe("image.resizeImage() should", () => {
         expect(a).toBe(true);
       });*/
 });
+

@@ -11,6 +11,7 @@ const thumbDir = "/Users/cjlee/workspace/projects/building-a-server-project/src/
 const app = (0, express_1.default)();
 const port = 3000;
 app.get('/api/images', (req, res) => {
+    console.log('GET received in /api/images');
     try {
         const imgPath = path_1.default.resolve(thumbDir, req.query.filename + '.jpg');
         if (!fs_1.default.existsSync(imgPath)) {
@@ -23,10 +24,13 @@ app.get('/api/images', (req, res) => {
         res.sendFile(imgPath);
     }
     catch (error) {
-        console.log(`error: ${error}`);
+        console.log(error);
         res.status(400).send(error.name);
     }
 });
 app.listen(port, () => {
     console.log('server is listening to port ', port);
 });
+exports.default = {
+    app
+};

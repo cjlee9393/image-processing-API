@@ -8,6 +8,7 @@ const app = express();
 const port = 3000;
 
 app.get('/api/images', (req:express.Request, res:express.Response) => {
+    console.log('GET received in /api/images');
     try{
         const imgPath = path.resolve(thumbDir, req.query.filename + '.jpg');
 
@@ -28,3 +29,7 @@ app.get('/api/images', (req:express.Request, res:express.Response) => {
 app.listen(port, () => {
     console.log('server is listening to port ', port);
 })
+
+export default{
+    app
+}
