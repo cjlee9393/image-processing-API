@@ -7,7 +7,7 @@ const fullDir =
 const thumbDir =
     '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb'
 
-const resizeImage = (imgName: string, width: number, height: number) => {
+const resizeImage = (imgName: string, width: number, height: number, callback: (err: Error, stdout: String, stderr: String) => void) => {
     const srcPath = path.resolve(fullDir, imgName + '.jpg')
     const dstPath = path.resolve(thumbDir, imgName + '.jpg')
 
@@ -23,20 +23,7 @@ const resizeImage = (imgName: string, width: number, height: number) => {
             dstPath: dstPath,
             width: width,
             height: height,
-        },
-        (err, stdout, stderr) => {
-            if (err) {
-                err.name = 'ImageFailedToProcessError'
-                throw err
-            }
-            console.log('stdout: ', stdout)
-            console.log('stderr: ', stderr)
-
-            console.log(
-                `resized  ${srcPath} to fit within ${width}x${height}px`
-            )
-        }
-    )
+        }, callback);
 }
 
 export default {
