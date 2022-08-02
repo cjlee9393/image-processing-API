@@ -12,7 +12,7 @@ const port = 3000
 app.get('/api/images', (req: express.Request, res: express.Response) => {
     console.log('GET received in /api/images')
     try {
-        const imgPath = path.resolve(thumbDir, req.query.filename + '.jpg') // make imgPath
+        const imgPath = image.getDstPath(req.query.filename as string, parseInt(req.query.width as string), parseInt(req.query.height as string));
 
         if (!fs.existsSync(imgPath)) {
             image.resizeImage(
