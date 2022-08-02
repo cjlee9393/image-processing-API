@@ -3,9 +3,19 @@
 ## Usage
 
 1. Configure build environment
-    - install dependencies
+    - install imagemagick
       ```bash
-      # Initialize npm
+      # install imagemagick
+      ## for linux 
+      sudo apt install imagemagick
+
+      ## for mac
+      brew install imagemagick
+      ```
+
+    - install npm packages dependencies
+      ```bash
+      # install npm packages
       npm install --force
       ```
 
