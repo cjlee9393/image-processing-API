@@ -6,8 +6,11 @@
     - install imagemagick
       ```bash
       # install imagemagick
-      ## for linux 
+      ## for linux with apt
       sudo apt install imagemagick
+
+      ## for linux with yun
+      sudo yum install ImageMagick
 
       ## for mac
       brew install imagemagick
