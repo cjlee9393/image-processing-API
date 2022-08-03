@@ -19,7 +19,7 @@
     - install npm packages dependencies
       ```bash
       # install npm packages
-      npm install --force
+      npm install
       ```
 
     - For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section

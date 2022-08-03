@@ -8,7 +8,8 @@
     "jasmine": "jasmine",
     "test": "npm run build && jasmine",
     "lint": "eslint '**/**/*.ts'",
-    "prettier": "prettier --config .prettierrc '**/**/*.ts' --write"
+    "prettier": "prettier --config .prettierrc '**/**/*.ts' --write",
+    "start": "node ./build/index"
   },
   "repository": {
     "type": "git",

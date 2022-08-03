@@ -4,8 +4,6 @@ import fs from 'fs'
 
 import image from './utilities/image'
 
-const thumbDir =
-    '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb'
 const app = express()
 const port = 3000
 
