@@ -3,26 +3,33 @@
 ## Usage
 
 1. Configure build environment
-    - install imagemagick
-      ```bash
-      # install imagemagick
-      ## for linux with apt
-      sudo apt install imagemagick
+    - Using Docker
+      1. build image with dockerfile in the root of the project repo
+         ```bash
+         docker build . -t image-processing-api
+         ```
+      2. run docker image
+         ```bash
+         docker run -it -p 3000:3000 image-processing-api
+         ```
 
-      ## for linux with yun
-      sudo yum install ImageMagick
+    - Not using Docker
+      1. install imagemagick
+         ```bash
+         ## for linux
+         sudo apt install imagemagick
 
-      ## for mac
-      brew install imagemagick
-      ```
+         ## for mac
+         brew install imagemagick
+         ```
 
-    - install npm packages dependencies
-      ```bash
-      # install npm packages
-      npm install
-      ```
+      2. install npm packages dependencies
+         ```bash
+         # install npm packages
+         npm install
+         ```
 
-    - For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section
+      3. For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section
 
 2. Build web app with webpack
   - Build in production mode
