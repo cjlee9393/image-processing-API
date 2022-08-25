@@ -16,8 +16,11 @@
     - Not using Docker
       1. install imagemagick
          ```bash
-         ## for linux
+         ## for linux with apt
          sudo apt install imagemagick
+
+         ## for linux with yum
+         sudo yum install ImageMagick
 
          ## for mac
          brew install imagemagick
@@ -25,8 +28,6 @@
 
       2. install npm packages dependencies
          ```bash
-         chmod 775 ./init.sh
-         
          ./init.sh
          ```
 
