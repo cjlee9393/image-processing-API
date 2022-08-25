@@ -25,16 +25,16 @@
 
       2. install npm packages dependencies
          ```bash
-         # install npm packages
-         npm install
+         chmod 775 ./init.sh
+         
+         ./init.sh
          ```
 
       3. For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section
 
-2. Build web app with webpack
-  - Build in production mode
+2. Build typescript
     ```bash
-    # Build web app in production mode
+    
     npm run build
     ```
 
