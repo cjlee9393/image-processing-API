@@ -1,4 +1,4 @@
-import im from 'imagemagick'
+import sharp from 'sharp'
 import fs from 'fs'
 import path from 'path'
 
@@ -12,7 +12,7 @@ const getDstPath = (imgName: string, width: number, height: number) =>{
     return path.resolve(thumbDir, imgName + '.width' + width + ".height" + height + '.jpg');
 }
 
-const resizeImage = (imgName: string, width: number, height: number, callback: (err: Error, stdout: String, stderr: String) => void) => {
+const resizeImage = (imgName: string, width: number, height: number, callback: (err: Error) => void) => {
     const srcPath = path.resolve(fullDir, imgName + '.jpg')
     const dstPath = getDstPath(imgName, width, height);
 
@@ -22,13 +22,9 @@ const resizeImage = (imgName: string, width: number, height: number, callback: (
         throw err
     }
 
-    im.resize(
-        {
-            srcPath: srcPath,
-            dstPath: dstPath,
-            width: width,
-            height: height,
-        }, callback);
+    sharp(srcPath)
+        .resize(width, height)
+        .toFile(dstPath, callback);
 }
 
 export default {

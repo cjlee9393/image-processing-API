@@ -11,13 +11,11 @@ describe('image.resizeImage() should', () => {
     }
 
     it('create resized image file if not already exist', () => {
-        image.resizeImage(imgName, 200, 200, (err, stdout, stderr) => {
+        image.resizeImage(imgName, 200, 200, (err) => {
             if (err) {
                 err.name = 'ImageFailedToProcessError'
                 throw err
             }
-            console.log('stdout: ', stdout)
-            console.log('stderr: ', stderr)
             
             expect(fs.existsSync(checkPath)).toBeTruthy()
         });

@@ -31,6 +31,7 @@
     "@types/imagemagick": "^0.0.31",
     "@types/jasmine": "^4.0.3",
     "@types/node": "^18.7.16",
+    "@types/sharp": "^0.30.5",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",

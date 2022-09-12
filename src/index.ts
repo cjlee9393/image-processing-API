@@ -17,16 +17,15 @@ app.get('/api/images', (req: express.Request, res: express.Response) => {
                 req.query.filename as string,
                 parseInt(req.query.width as string),
                 parseInt(req.query.height as string), 
-                (err, stdout, stderr) => {
+                (err) => {
                     if (err) {
                         err.name = 'ImageFailedToProcessError'
                         throw err
                     }
-                    if (stdout) console.log('stdout: ', stdout)
-                    if (stderr) console.log('stderr: ', stderr)
 
                     res.status(200).sendFile(imgPath)
-            });
+                });
+            
             console.log('save it to disk on first access')
         } else {
             console.log('pull from disk on subsequent access')
