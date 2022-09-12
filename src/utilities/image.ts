@@ -8,7 +8,7 @@ const fullDir = path.resolve(pwd, 'src/assets/full');
 const thumbDir = path.resolve(pwd, 'src/assets/thumb');
     // '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb'
 
-const getDstPath = (imgName: string, width: number, height: number) =>{
+const getDstPath = (imgName: string, width: number, height: number): string =>{
     return path.resolve(thumbDir, imgName + '.width' + width + ".height" + height + '.jpg');
 }
 

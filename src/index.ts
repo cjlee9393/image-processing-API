@@ -7,7 +7,7 @@ import image from './utilities/image'
 const app = express()
 const port = 3000
 
-app.get('/api/images', (req: express.Request, res: express.Response) => {
+app.get('/api/images', (req: express.Request, res: express.Response):void => {
     console.log('GET received in /api/images')
     try {
         const imgPath = image.getDstPath(req.query.filename as string, parseInt(req.query.width as string), parseInt(req.query.height as string));
