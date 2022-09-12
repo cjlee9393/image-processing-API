@@ -16,9 +16,9 @@ describe('image.resizeImage() should', () => {
                 err.name = 'ImageFailedToProcessError'
                 throw err
             }
-            
+
             expect(fs.existsSync(checkPath)).toBeTruthy()
-        });
+        })
     })
 
     /* it("not create resized image file if already exist", () => {
