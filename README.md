@@ -3,12 +3,12 @@
 ## Usage
 
 1. Configure build environment
-      1. install npm packages dependencies
-         ```bash
-         npm i
-         ```
+   1. install npm packages dependencies
+      ```bash
+      npm i
+      ```
 
-      2. For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section
+   2. For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section
 
 2. Build typescript
     ```bash
@@ -20,13 +20,14 @@
     ```bash
     # Run server with node.js
     npm run start
-
-    # Open Google Chrome
-    open -a 'Google Chrome'
-
-    # connect to http://HostURL:3000/status
-    # connect to http://HostURL:3000/api/images?filename=fjord&width=500&height=500
     ```
+    
+4. Access the endpoints
+   1. http://HostURL:3000/status [GET]
+
+   2. http://HostURL:3000/api/images [GET] (query parameters: filename, width, height)
+      - example: http://HostURL:3000/api/images?filename=fjord&width=500&height=500
+
 
 * Unit testing using Jasmine
     ```bash

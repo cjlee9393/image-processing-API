@@ -4,12 +4,9 @@
   "description": "This project aims to give you a real-world scenario in which you would read and write to your disk via a Node.js express server rather than a database. The project you create serves two purposes: to prepare you for setting up scalable code and architecture for real-world projects and tie together some of the most popular middleware and utilities found in Node.js projects. This project barely touches the surface of what is possible but will prove your ability to use what you’ve learned in real-world scenarios.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint && npm run prettier && npx tsc",
-    "jasmine": "jasmine",
-    "test": "npm run build && jasmine",
-    "lint": "eslint 'src/**/*.ts'",
-    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "start": "node ./build/index"
+    "prepare": "eslint 'src/**/*.ts' && prettier --config .prettierrc 'src/**/*.ts' --write && npx tsc",
+    "start": "node ./build/index",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
