@@ -11,6 +11,7 @@ const images = async (req: Request, res: Response) => {
 
         res.sendFile(imgDst)
     } catch (err) {
+        console.log(err)
         res.status(400).json(err)
     }
 }

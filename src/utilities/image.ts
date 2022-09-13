@@ -2,9 +2,8 @@ import sharp from 'sharp'
 import fs from 'fs'
 import path from 'path'
 
-const pwd = __dirname.split('/').slice(0, -2).join('/')
-const fullDir = path.resolve(pwd, 'src/assets/full')
-const thumbDir = path.resolve(pwd, 'src/assets/thumb')
+const fullDir = path.resolve(__dirname, '../assets/full')
+const thumbDir = path.resolve(__dirname, '../assets/thumb')
 
 const getDstPath = (imgName: string, width: number, height: number): string => {
     return path.resolve(
@@ -19,9 +18,9 @@ export const resizeImage = async (
     height: string
 ): Promise<string> => {
     // check valid width and height
-    if (isNaN(+width) || isNaN(+height)) {
+    if (isNaN(+width) || isNaN(+height) || +width <= 0 || +height <= 0) {
         const err = new Error()
-        err.message = `Height/width parameters should be positive integers.`
+        err.message = `'height' and 'width' parameters should be provided as positive integers.`
         err.name = 'InvalidHeightWidthError'
         throw err
     }
@@ -32,7 +31,7 @@ export const resizeImage = async (
     // check valid filename
     if (!fs.existsSync(srcPath)) {
         const err = new Error()
-        err.message = `Original file name should be 'encenadaport', 'fjord', 'icelandwaterfall', 'palmtunnel', or 'santamonica.'`
+        err.message = `'filename' parameter should be provided as 'encenadaport', 'fjord', 'icelandwaterfall', 'palmtunnel', or 'santamonica.'`
         err.name = 'InvalidFileNameError'
         throw err
     }
@@ -40,12 +39,12 @@ export const resizeImage = async (
     // check if already exist
     if (!fs.existsSync(dstPath)) {
         console.log('Resize an image and save it to disk on first access.')
-        return dstPath
-    } else {
-        console.log('Pull from disk on subsequent access attempts.')
         await sharp(srcPath)
             .resize(+width, +height)
             .toFile(dstPath)
+        return dstPath
+    } else {
+        console.log('Pull from disk on subsequent access attempts.')
         return dstPath
     }
 }
