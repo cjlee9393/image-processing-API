@@ -10,24 +10,20 @@
 
    2. For reference, proposed set of packages with their versions are package.json file as well as in *Dependencies* section
 
-2. Build typescript
-    ```bash
-    
-    npm run build
-    ```
-
-3. Run server and connect in browser
+2. Run server
     ```bash
     # Run server with node.js
     npm run start
     ```
     
-4. Access the endpoints
+3. Access the endpoints
    1. http://HostURL:3000/status [GET]
 
    2. http://HostURL:3000/api/images [GET] (query parameters: filename, width, height)
+      - expected parameters
+         - filename should be provided as 'encenadaport', 'fjord', 'icelandwaterfall', 'palmtunnel', or 'santamonica.'
+         - width and height should be provided as positive integers.
       - example: http://HostURL:3000/api/images?filename=fjord&width=500&height=500
-
 
 * Unit testing using Jasmine
     ```bash
