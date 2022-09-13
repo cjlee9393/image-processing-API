@@ -1,4 +1,4 @@
-import image from '../../utilities/image'
+/*import image from '../../utilities/image'
 import fs from 'fs'
 
 describe('image.resizeImage() should', () => {
@@ -21,8 +21,8 @@ describe('image.resizeImage() should', () => {
         })
     })
 
-    /* it("not create resized image file if already exist", () => {
+    it("not create resized image file if already exist", () => {
         image.resizeImage(imgName, 200, 200);
         expect(a).toBe(true);
-      });*/
-})
+      });
+})*/
