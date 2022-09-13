@@ -1,28 +1,19 @@
-/*import image from '../../utilities/image'
-import fs from 'fs'
+import app from '../../index'
+import supertest from 'supertest'
 
-describe('image.resizeImage() should', () => {
-    const imgName = 'fjord'
-    const checkPath =
-        '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb/fjord.jpg'
-    console.log(`fs.existsSync(checkPath): ${fs.existsSync(checkPath)}`)
-    if (fs.existsSync(checkPath)) {
-        fs.unlinkSync(checkPath)
-    }
+const request = supertest(app)
 
-    it('create resized image file if not already exist', () => {
-        image.resizeImage(imgName, 200, 200, (err) => {
-            if (err) {
-                err.name = 'ImageFailedToProcessError'
-                throw err
-            }
-
-            expect(fs.existsSync(checkPath)).toBeTruthy()
-        })
+describe('/api/images route should', () => {
+    it('respond with status 200', (done) => {
+        request
+            .get('/api/images?filename=fjord&width=200&height=200')
+            .expect(200)
+            .end((err, res) => {
+                if (err) {
+                    console.log(res)
+                    throw err
+                }
+                return done()
+            })
     })
-
-    it("not create resized image file if already exist", () => {
-        image.resizeImage(imgName, 200, 200);
-        expect(a).toBe(true);
-      });
-})*/
+})
