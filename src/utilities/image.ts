@@ -2,11 +2,18 @@ import sharp from 'sharp'
 import fs from 'fs'
 import path from 'path'
 
-const pwd = process.env.PWD as string
-const fullDir = path.resolve(pwd, 'src/assets/full')
-// '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/full'
-const thumbDir = path.resolve(pwd, 'src/assets/thumb')
-// '/Users/cjlee/workspace/projects/building-a-server-project/src/assets/thumb'
+let pwd = process.env.PWD as string
+let fullDir = '' as string
+let thumbDir = '' as string
+
+try {
+    fullDir = path.resolve(pwd, 'src/assets/full')
+    thumbDir = path.resolve(pwd, 'src/assets/thumb')
+} catch (err) {
+    pwd = __dirname.split('/').slice(0, -2).join('/')
+    fullDir = path.resolve(pwd, 'src/assets/full')
+    thumbDir = path.resolve(pwd, 'src/assets/thumb')
+}
 
 const getDstPath = (imgName: string, width: number, height: number): string => {
     return path.resolve(
