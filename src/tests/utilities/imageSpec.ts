@@ -1,19 +1,22 @@
-import app from '../../index'
-import supertest from 'supertest'
+import { resizeImage, getDstPath } from '../../utilities/image'
+import fs from 'fs'
 
-const request = supertest(app)
+describe('image.resizeImage() should', () => {
+    const imgName = 'fjord'
+    const width = '64'
+    const height = '64'
 
-describe('/api/images route should', () => {
-    it('respond with status 200', (done) => {
-        request
-            .get('/api/images?filename=fjord&width=200&height=200')
-            .expect(200)
-            .end((err, res) => {
-                if (err) {
-                    console.log(res)
-                    throw err
-                }
-                return done()
-            })
+    let dstPath = getDstPath(imgName, +width, +height)
+
+    if (fs.existsSync(dstPath)) {
+        fs.unlinkSync(dstPath)
+    }
+
+    it('create resized image file if not already exist', async () => {
+        expect(fs.existsSync(dstPath)).toBeFalsy()
+
+        dstPath = await resizeImage(imgName, width, height)
+
+        expect(fs.existsSync(dstPath)).toBeTruthy()
     })
 })
