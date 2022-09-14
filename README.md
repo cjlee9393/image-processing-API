@@ -23,7 +23,7 @@
       - expected parameters
          - filename should be provided as 'encenadaport', 'fjord', 'icelandwaterfall', 'palmtunnel', or 'santamonica.'
          - width and height should be provided as positive integers.
-      - example: http://HostURL:3000/api/images?filename=fjord&width=500&height=500
+      - sample URL: http://HostURL:3000/api/images?filename=fjord&width=500&height=500
 
 * Unit testing using Jasmine
     ```bash
@@ -70,14 +70,6 @@
    - support
       - jasmine.json
 - src
-	- assets
-      - full
-         - encenadaport.jpg
-         - fjord.jpg
-         - icelandwaterfall.jpg
-         - palmtunnel.jpg
-         - santamonica.jpg
-      - thumb
    - tests
       - helpers
          - reporter.ts
@@ -87,6 +79,14 @@
    - utilities
       - image.ts
    - index.ts
+- assets
+   - full
+      - encenadaport.jpg
+      - fjord.jpg
+      - icelandwaterfall.jpg
+      - palmtunnel.jpg
+      - santamonica.jpg
+   - thumb
 - .eslintrc.js
 - .gitignore
 - .prettierrc

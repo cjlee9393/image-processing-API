@@ -2,8 +2,8 @@ import sharp from 'sharp'
 import fs from 'fs'
 import path from 'path'
 
-const fullDir = path.resolve(__dirname, '../assets/full')
-const thumbDir = path.resolve(__dirname, '../assets/thumb')
+const fullDir = path.resolve(__dirname, '../../assets/full')
+const thumbDir = path.resolve(__dirname, '../../assets/thumb')
 
 const getDstPath = (imgName: string, width: number, height: number): string => {
     return path.resolve(

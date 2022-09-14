@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint 'src/**/*.ts'",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "prepare": "npm run eslint && npm run prettier && npx tsc && cp -r ./src/assets ./build",
+    "prepare": "npm run eslint && npm run prettier && npx tsc",
     "start": "node ./build/index",
     "test": "jasmine"
   },
